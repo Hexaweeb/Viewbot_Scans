@@ -1,3 +1,8 @@
+/*
+This code is really messy. When I wrote it I wasn't ever planning on
+other people seeing it. It was for personal use, and to some extent,
+still is. I just thought it'd be fun to throw some scans up.
+*/
 var async = require('async');
 var request = require('request');
 var fs = require('fs');
@@ -11,7 +16,9 @@ var date = time.getDate().toString();
 var month = time.getMonth() + 1;
 var year = time.getFullYear().toString();
 var c_date = month + '-' + date + '-' + year;
+
 async.waterfall([
+  
   function(callback) {
     var URL = 'http://tmi.twitch.tv/group/user/' + channel + '/chatters';
     request(URL, function(err, response, body) {
@@ -44,6 +51,7 @@ async.waterfall([
     });
   }
 ],
+
 function(err, date_array) {
   if(err) {
     console.log("well fuck man");
